@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600&display=swap" rel="stylesheet">
+    <title>IELTS Full Reading Practice - Test 7-V7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background-color: #ffffff;
+            line-height: 1.4;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(120deg, #e9eefb, #dfe7ff, #e9eefb);
+            background-size: 200% 200%;
+            animation: bannerFlow 8s ease-in-out infinite;
+            padding: 10px 20px;
+            border-bottom: 1px solid #d7def5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 60px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            flex: 1 1 auto;
+            justify-content: flex-start;
+        }
+        .header-ad {
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            padding: 4px 10px;
+            border-radius: 14px;
+            border: 1px solid rgba(215, 222, 245, 0.9);
+            background: rgba(255, 255, 255, 0.24);
+            backdrop-filter: blur(4px);
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 24px rgba(33, 58, 128, 0.12);
+            min-width: 180px;
+            max-width: calc(100% - 70px);
+            width: auto;
+            flex: 1 1 auto;
+            height: 48px;
+            overflow: hidden;
+        }
+        .ad-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .ad-eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6b7ac7;
+            margin: 0;
+            font-weight: 700;
+        }
+        .ad-marquee {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            align-items: center;
+            padding-left: 4px;
+        }
+        .ad-headline {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 800;
+            color: #1c2566;
+            white-space: nowrap;
+        }
+        .ad-loop {
+            display: flex;
+            gap: 40px;
+        }
+        .ad-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #cdd6f5;
+            background: rgba(255, 255, 255, 0.7);
+            color: #46507a;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            text-decoration: none;
+            font-weight: 800;
+            flex: 0 0 auto;
+            margin-left: 6px;
+            font-size: 16px;
+        }
+        .ad-close:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(70, 80, 122, 0.25);
+            background: #f6f8ff;
+        }
+        @keyframes bannerFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .main-container {
+            margin-top: 90px;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            height: calc(100vh - 90px);
+        }
+
+        .panels-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .passage-panel {
+            flex: 1;
+            padding: 20px 20px 100px;
+            overflow-y: auto;
+            min-width: 200px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .reading-passage h4 {
+            font-family: 'Merriweather', 'Times New Roman', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+       
+        .reading-passage p {
+            margin-bottom: 1.2em;
+        }
+
+        .questions-panel {
+            flex: 1;
+            padding: 20px 20px 100px;
+            overflow-y: auto;
+            min-width: 200px;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .resizer {
+            width: 10px;
+            cursor: col-resize;
+            background-color: #f0f0f0;
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="30" viewBox="0 0 10 30"><path d="M4 11h2v2H4zM4 15h2v2H4zM4 19h2v2H4z" fill="%23888"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+        .nav-arrows {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            z-index: 101;
+        }
+
+        .nav-arrow {
+            width: 50px;
+            height: 50px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-arrow:hover {
+            background: #555;
+        }
+
+        .nav-row {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            height: 80px;
+            z-index: 100;
+        }
+
+        .footer__questionWrapper___1tZ46 {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .footer__questionNo___3WNct {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .footer__questionNo___3WNct:hover {
+            background-color: #f8f9fa;
+        }
+
+        .section-prefix {
+            font-size: 16px;
+        }
+
+        .sectionNr {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .attemptedCount {
+            font-size: 14px;
+            color: #666;
+            margin-left: 5px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .attemptedCount {
+                display: none;
+            }
+        }
+
+        .footer__questionWrapper___1tZ46.selected .attemptedCount {
+            display: none;
+        }
+
+        .footer__subquestionWrapper___9GgoP {
+            display: none;
+            gap: 2px;
+            margin-left: 10px;
+        }
+
+        .footer__questionWrapper___1tZ46.selected .footer__subquestionWrapper___9GgoP {
+            display: flex;
+        }
+
+        .subQuestion {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ccc;
+            background: white;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            border-radius: 2px;
+        }
+
+        .subQuestion.answered {
+            background-color: #e9ecef;
+            border-color: #ddd;
+        }
+        .subQuestion.correct {
+            background-color: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+        .subQuestion.incorrect {
+            background-color: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+
+        .subQuestion.marked {
+            position: relative;
+            color: #333;
+        }
+
+        .subQuestion:hover {
+            background-color: #f0f0f0;
+            border-color: #999;
+        }
+
+        .subQuestion.active {
+            background-color: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .footer__deliverButton___3FM07 {
+            margin-left: auto;
+            margin-right: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s, border-color 0.2s;
+            min-width: 170px;
+            justify-content: center;
+        }
+
+        .footer__deliverButton___3FM07:hover {
+            background-color: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .footer__deliverButton___3FM07:disabled {
+            background: #e9ecef;
+            color: #6c757d;
+            cursor: not-allowed;
+            border-color: #ddd;
+        }
+
+        .fa-check::before {
+            content: "✓";
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .context-menu {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+            min-width: 140px;
+            overflow: hidden;
+        }
+
+        .context-menu-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .context-menu-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .context-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .color-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            padding: 0;
+            background-color: transparent;
+        }
+        
+        .color-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        
+        .color-btn.yellow { background-color: #fff3a3; }
+        .color-btn.green { background-color: #b4f0c1; }
+        .color-btn.pink { background-color: #ffc7df; }
+
+        .annotation-highlight {
+            background-color: var(--highlight-color, #fff3a3);
+            border-radius: 4px;
+            padding: 0 2px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .annotation-highlight.highlight-yellow { --highlight-color: #fff3a3; }
+        .annotation-highlight.highlight-green { --highlight-color: #b4f0c1; }
+        .annotation-highlight.highlight-pink { --highlight-color: #ffc7df; }
+        .annotation-highlight.highlight-blue { --highlight-color: #d0ebff; border: 1px dashed #339af0; }
+
+        .annotation-note {
+            background-color: #b4f0c1;
+            border-radius: 4px;
+            padding: 0 2px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .annotation-note[data-note]:hover::after {
+            content: attr(data-note);
+            position: absolute;
+            left: 50%;
+            bottom: 100%;
+            transform: translate(-50%, -6px);
+            background: #1f2937;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 13px;
+            z-index: 2000;
+        }
+
+        .question {
+            margin-bottom: 40px;
+        }
+        .question p {
+            margin-bottom: 10px;
+        }
+        .question-prompt {
+            margin-bottom: 20px;
+        }
+        .question-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin: 6px 0 10px;
+            color: #000;
+        }
+        .answer-input {
+            border: 1px solid #888;
+            border-radius: 4px;
+            background-color: #fff;
+            padding: 2px 5px;
+            font-size: 16px;
+            text-align: center;
+            margin-right: 4px;
+            margin-left: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            height: 28px;
+            width: 150px;
+            z-index: 10;
+            position: relative;
+            pointer-events: auto;
+        }
+        .answer-input.active-input {
+            border-color: #4a90e2;
+            box-shadow: 0 0 3px 1px rgba(74, 144, 226, 0.5);
+        }
+        .answer-input::placeholder {
+            color: #999;
+            font-weight: bold;
+            text-align: center;
+        }
+        .answer-input.correct {
+            border-color: #28a745;
+            background-color: #e9f7ef;
+        }
+        .answer-input.incorrect {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .part-header {
+            background-color: #f1f2ec;
+            padding: 10px 16px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            margin: 8px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .timer-container {
+            display: flex;
+            position: relative;
+            cursor: default;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            align-items: center;
+            gap: 12px;
+            flex: 0 0 auto;
+            min-width: 220px;
+            padding: 4px 10px;
+            border-radius: 14px;
+            border: 1px solid #d7def5;
+            background: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 8px 18px rgba(33, 58, 128, 0.08);
+        }
+
+        .timer-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+        }
+
+        .timer-controls button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            padding: 0;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .timer-controls button:hover {
+            background: #e0e0e0;
+        }
+
+        .tf-question {
+            margin-bottom: 25px;
+            padding: 10px 0px;
+            border-radius: 4px;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .tf-question-line {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 5px 0px;
+            border-radius: 4px;
+        }
+        .tf-question-number, .question-number-box {
+            border: 2px solid #ccc;
+            padding: 2px 8px;
+            margin-right: 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            transition: border-color 0.3s;
+            display: inline-block;
+        }
+        .tf-question-text {
+            padding-top: 3px;
+        }
+        .tf-options {
+            padding-left: 5px;
+        }
+        .tf-option {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .tf-option input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .tf-question.correct .tf-question-line {
+            background-color: #e9f7ef;
+        }
+        .tf-question.incorrect .tf-question-line {
+            background-color: #f8d7da;
+        }
+        .multi-choice-question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 3px solid transparent;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .multi-choice-option {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .multi-choice-option label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .multi-choice-option input[type="checkbox"],
+        .multi-choice-option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.3);
+            accent-color: #4a90e2;
+        }
+        .multi-choice-option.correct {
+            background-color: #e9f7ef;
+        }
+        .multi-choice-option.incorrect {
+            background-color: #f8d7da;
+        }
+        .matching-form-container {
+            margin-top: 20px;
+        }
+        .matching-form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .matching-form-label {
+            width: auto;
+            flex: 1 1 320px;
+            margin-right: 8px;
+        }
+        .matching-form-row select.answer-input {
+            width: 220px;
+            flex-shrink: 0;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.hidden {
+            display: none;
+        }
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+        }
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .results-summary {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        .results-details-container {
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .result-row {
+            display: grid;
+            grid-template-columns: 40px 1fr 1fr;
+            gap: 15px;
+            padding: 8px 5px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+        }
+        .result-row.incorrect {
+            background-color: #f8d7da;
+        }
+        .result-row .q-num {
+            font-weight: bold;
+        }
+        .result-row .user-ans {
+            color: #555;
+        }
+        .result-row .correct-ans {
+            color: #155724;
+            font-weight: 500;
+        }
+        .correct-answer-display {
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        .correct-answer-highlight {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #launchScreen, #app {
+            width: 100vw;
+            height: 100vh;
+        }
+        #app {
+            display: none;
+        }
+        #launchScreen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(206, 219, 255, 0.48), transparent 34%),
+                radial-gradient(circle at 100% 100%, rgba(221, 229, 255, 0.44), transparent 38%),
+                #f4f6fc;
+            color: #1f2b59;
+        }
+        .launch-card {
+            width: min(980px, 100%);
+            border: 1px solid #d7def5;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #ffffff, #f7f9ff);
+            box-shadow: 0 16px 38px rgba(33, 58, 128, 0.14);
+            padding: 28px 30px 22px;
+            display: grid;
+            gap: 12px;
+        }
+        .launch-eyebrow {
+            margin: 0;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #6f7cb2;
+            font-weight: 700;
+        }
+        .launch-title {
+            margin: 4px 0 0;
+            font-size: clamp(26px, 3.5vw, 40px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #1c2566;
+        }
+        .launch-meta {
+            margin: 8px 0 0;
+            color: #3c4a81;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .launch-guide {
+            border: 1px solid #d7def5;
+            border-radius: 12px;
+            background: #f2f5ff;
+            padding: 14px;
+            display: grid;
+            gap: 6px;
+        }
+        .launch-main {
+            margin: 0;
+            font-size: clamp(18px, 2.2vw, 23px);
+            line-height: 1.32;
+            font-weight: 700;
+            color: #1d2a60;
+        }
+        .launch-sub {
+            margin: 0;
+            color: #4c598f;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+        .launch-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .launch-btn {
+            border: 1px solid #c5d0f2;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 11px 16px;
+            color: #24336e;
+            background: #ffffff;
+            transition: transform 0.12s ease;
+            box-shadow: 0 8px 20px rgba(35, 54, 110, 0.14);
+        }
+        .launch-btn:hover {
+            transform: translateY(-1px);
+            background: #f6f8ff;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background-color: #f0f7ff;
+            border-left: 4px solid #4a90e2;
+            border-radius: 4px;
+            font-size: 15px;
+            color: #2c3e50;
+            line-height: 1.5;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .explanation-box:hover {
+            background-color: #e2efff;
+        }
+        .explanation-box.show {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .explanation-title {
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #1c2566;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        .options-list li {
+            margin-bottom: 5px;
+        }
+        .options-list-label {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .example-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <section id="launchScreen" aria-label="Launch screen">
+        <div class="launch-card">
+            <div>
+                <p class="launch-eyebrow">IELTS Test Launcher</p>
+                <h1 class="launch-title" id="launchTestTitle">V7 Test 7 Reading</h1>
+                <p class="launch-meta">Dạng bài: Reading</p>
+            </div>
+            <div class="launch-guide">
+                <p class="launch-main">Nhấn F11 để bắt đầu làm bài ở chế độ toàn màn hình.</p>
+                <p class="launch-sub">Nhấn F11 lần nữa để thoát toàn màn hình nếu cần.</p>
+            </div>
+            <div class="launch-row">
+                <button id="startNormalBtn" class="launch-btn" type="button">Bắt đầu làm bài</button>
+            </div>
+        </div>
+    </section>
+    <div id="app">
+    <div class="header">
+        <div class="timer-container">
+            <span class="timer-display">60 minutes remaining</span>
+            <div class="timer-controls">
+                <button id="timer-toggle-btn" title="Pause/Resume Timer">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 5v14l11-7L8 5z"/></svg>
+                </button>
+                <button id="timer-reset-btn" title="Reset Timer">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="https://www.facebook.com/englishresourcehub" target="_blank" rel="noopener" class="header-ad">
+                <div class="ad-copy">
+                    <p class="ad-eyebrow">Study boost</p>
+                    <div class="ad-marquee">
+                        <div class="ad-loop">
+                            <span class="ad-headline">Chinh phục IELTS dễ dàng - Tài liệu đầy đủ, chiến lược rõ ràng!</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <button class="ad-close" type="button" aria-label="Close ad" title="Close" onclick="window.open('https://www.facebook.com/englishresourcehub','_blank','noopener')">×</button>
+        </div>
+    </div>
+
+        <div class="main-container" id="main-container">
+            <div id="passage-header-container">
+                <div id="part-header-1" class="part-header">
+                    <p><strong>Part 1</strong></p>
+                    <p>You should spend about 20 minutes on Questions 1-13, which are based on Reading Passage 1 below.</p>
+                </div>
+                <div id="part-header-2" class="part-header hidden">
+                    <p><strong>Part 2</strong></p>
+                    <p>You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.</p>
+                </div>
+                <div id="part-header-3" class="part-header hidden">
+                    <p><strong>Part 3</strong></p>
+                    <p>You should spend about 20 minutes on Questions 27-40, which are based on Reading Passage 3 below.</p>
+                </div>
+            </div>
+            <div class="panels-container">
+            <div class="passage-panel" id="passage-panel">
+                <div id="passage-text-1" class="reading-passage">
+                    <h4 class="text-center">Going Bananas</h4>
+                    <p><strong>A</strong> The world's favourite fruit could disappear forever in 10 years' time. The banana is among the world's oldest crops. Agricultural scientists believe that the first edible banana was discovered around ten thousand years ago. It has been at an evolutionary standstill ever since it was first propagated in the jungles of South-East Asia at the end of the last ice age. Normally the wild banana, a giant jungle herb called Musa acuminate, contains a mass of hard seeds that make the fruit virtually inedible. But now and then, hunter-gatherers must have discovered rare mutant plants that produced seed-less, edible fruits. Geneticists now know that the vast majority of these soft-fruited plants resulted from genetic accidents that gave their cells three copies of each chromosome instead of the usual two. This imbalance prevents seeds and pollen from developing normally, rendering the mutant plants sterile. And that is why some scientists believe the world's most popular fruit could be doomed. It lacks the genetic diversity to fight off pests and diseases that are invading the banana plantations of Central America and the small-holdings of Africa and Asia alike.</p>
+                    <p><strong>B</strong> In some ways, the banana today resembles the potato before blight brought famine to Ireland a century and a half ago. But “it holds a lesson for other crops, too”, says Emile Frison, top banana at the International Network for the Improvement of Banana and Plantain in Montpellier, France. “The state of the banana", Frison warns, “can teach a broader lesson the increasing standardisation of food crops round the world is threatening their ability to adapt and survive.”</p>
+                    <p><strong>C</strong> The first Stone Age plant breeders cultivated these sterile freaks by replanting cuttings from their stems. And the descendants of those original cuttings are the bananas we still eat today. Each is a virtual clone, almost devoid of genetic diversity. And that uniformity makes it ripe for disease like no other crop on Earth. Traditional varieties of sexually reproducing crops have always had a much broader genetic base, and the genes will recombine in new arrangements in each generation. This gives them much greater flexibility in evolving responses to disease – and far more genetic resources to draw on in the face of an attack. But that advantage is fading fast, as growers increasingly plant the same few, high-yielding varieties. Plant breeders work feverishly to maintain resistance in these standardized crops. Should these efforts falter, yields of even the most productive crop could swiftly crash. “When some pest or disease comes along, severe epidemics can occur,” says Geoff Hawtin, director of the Rome-based International Plant Genetic Resources Institute.</p>
+                    <p><strong>D</strong> The banana is an excellent case in point. Until the 1950s, one variety, the Gros Michel, dominated the world's commercial banana business. Found by French botanists in Asian the 1820s, the Gros Michel was by all accounts a fine banana, richer and sweeter than today's standard banana and without the latter's bitter aftertaste when green. But it was vulnerable to a soil fungus that produced a wilt known as Panama disease. “Once the fungus gets into the soil it remains there for many years. There is nothing farmers can do. Even chemical spraying won't get rid of it,” says Rodomiro Ortiz, director of the Inter-national Institute for Tropical Agriculture in Ibadan, Nigeria. So plantation owners played a running game, abandoning infested fields and moving so “clean” land – until they ran out of clean land in the 1950s and had to abandon the Gros Michel. Its successor, and still the reigning commercial king, is the Cavendish banana, a 19th-century British discovery from southern China. The Cavendish is resistant to Panama disease and, as a result, it literally saved the international banana industry. During the 1960s, it replaced the Gros Michel on supermarket shelves. If you buy a banana today, it is almost certainly a Cavendish. But even so, it is a minority in the world's banana crop.</p>
+                    <p><strong>E</strong> Half a billion people in Asia and Africa depend on bananas. Bananas provide the largest source of calories and are eaten daily. Its name is synonymous with food. But the day of reckoning may be coming for the Cavendish and its indigenous kin. Another fungal disease, black Sigatoka, has become a global epidemic since its first appearance in Fiji in 1963. Left to itself, black Sigatoka – which causes brown wounds on leaves and pre-mature fruit ripening – cuts fruit yields by 50 to 70 per cent and reduces the productive lifetime of banana plants from 30 years to as little as 2 or 3. Commercial growers keep Sigatoka at bay by a massive chemical assault. Forty spraying of fungicide a year is typical. But despite the fungicides, diseases such as black Sigatoka are getting more and more difficult to control. “As soon as you bring in a new fungicide, they develop resistance,” says Frison. “One thing we can be sure of is that the Sigatoka won't lose in this battle." Poor farmers, who cannot afford chemicals, have it even worse. They can do little more than watch their plants die. “Most of the banana fields in Amazonia have already been destroyed by the disease,” says Luadir Gasparotto, Brazil's leading banana pathologist with the government research agency EMBRAPA. Production is likely to fall by 70 percent as the disease spreads, he predicts. The only option will be to find a new variety.</p>
+                    <p><strong>F</strong> But how? Almost all edible varieties are susceptible to the diseases, so growers cannot simply change to a different banana. With most crops, such a threat would unleash an army of breeders, scouring the world for resistant relatives whose traits they can breed into commercial varieties. Not so with the banana. Because all edible varieties are sterile, bringing in new genetic traits to help cope with pests and diseases is nearly impossible. Nearly, but not totally. Very rarely, a sterile banana will experience a genetic accident that allows an almost normal seed to develop, giving breeders a tiny window for improvement. Breeders at the Honduran Foundation of Agricultural Research have tried to exploit this to create disease-resistant varieties. Further backcrossing with wild bananas yielded a new seedless banana resistant to both black Sigatoka and Panama disease.</p>
+                    <p><strong>G</strong> Neither Western supermarket consumers nor peasant growers like the new hybrid. Some accuse it of tasting more like an apple than a banana. Not surprisingly, the majority of plant breeders have till now turned their backs on the banana and got to work on easier plants. And commercial banana companies are now washing their hands of the whole breeding effort, preferring to fund a search for new fungicides instead. "We supported a breeding programme for 40 years, but it wasn't able to develop an alternative to Cavendish. It was very expensive and we got nothing back,” says Ronald Romero, head of research at Chiquita, one of the Big Three companies that dominate the international banana trade.</p>
+                    <p><strong>H</strong> Last year, a global consortium of scientists led by Frison announced plans to sequence the banana genome within five years. It would be the first edible fruit to be sequenced. Well, almost edible. The group will actually be sequencing inedible wild bananas from East Asia because many of these are resistant to black Sigatoka. If they can pinpoint the genes that help these wild varieties to resist black Sigatoka, the protective genes could be introduce into laboratory tissue cultures of cells from edible varieties. These could then be propagated into new, resistant plants and passed on to farmers.</p>
+                    <p><strong>I</strong> It sounds promising, but the big banana companies have, until now, refused to get involved in GM research for fear of alienating their customers. “Biotechnology is extremely expensive and there are serious questions about consumer acceptance,” says David McLaughlin, Chiquita’s senior director for environmental affairs. With scant funding from the companies, the banana genome researchers are focusing on the other end of the spectrum. Even if they can identify the crucial genes, they will be a long way from developing new varieties that smallholders will find suitable and affordable. But whatever biotechnology's academic interest, it is the only hope for the banana. Without banana production worldwide will head into a tailspin. We may even see the extinction of the banana as both a lifesaver for hungry and impoverished Africans and as the most popular product on the world's supermarket shelves.</p>
+                </div>
+                <div id="passage-text-2" class="reading-passage hidden">
+                    <h4 class="text-center">Can we call it “Art”? (2)<br>Life-Casting and Art</h4>
+                    <p><em>Julian Bames explores the questions posed by Life-Casts, an exhibition of plaster moulds of living people and objects which were originally used for scientific purposes</em></p>
+                    <p><strong>A</strong> Art changes over time and our idea of what art is changes too. For example, objects originally intended for devotional, ritualistic or re-creational purposes may be recategorized as art by members of other later civilisations, such as our own, which no longer respond to these purposes.</p>
+                    <p><strong>B</strong> What also happens is that techniques and crafts which would have been judged inartistic at the time they were used are reassessed. Life-casting is an interesting example of this. It involved making a plaster mould of a living person or thing. This was complex, technical work, as Benjamin Robert Haydon discovered when he poured 250 litres of plaster over his human model and nearly killed him. At the time, the casts were used for medical research and, consequently, in the nineteenth century life-casting was considered inferior to sculpture in the same way that, more recently, photography was thought to be a lesser art than painting. Both were viewed as unacceptable shortcuts by the ‘senior’ arts. Their virtues of speed and unwavering realism also implied their limitations; they left little or no room for the imagination.</p>
+                    <p><strong>C</strong> For many, life-casting was an insult to the sculptor's creative genius. In an infamous lawsuit of 1834, a moulder whose mask of the dying French emperor Napoleon had been reproduced and sold without his permission was judged to have no rights to the image. In other words, he was specifically held not to be an artist. This judgement reflect the view of established members of the nineteenth-century art world such as Rodin, who commented that life-casting ‘happens fast but it doesn't make Art'. Some even feared that ‘if too much nature was allowed in, it would lead Art away from its proper course of the Ideal.</p>
+                    <p><strong>D</strong> The painter Gauguin, at the end of the nineteenth century, worried about future developments in photography. If ever the process went into colour, what painter would labour away at a likeness with a brush made from squirrel-tail? But painting has proved robust. Photography has changed it, of course, just as the novel had to reassess narrative after the arrival of the cinema. But the gap between the senior and junior arts was always narrower than the traditionalists implied. Painters have always used technical back-up such as studio assistants to do the boring bits, while apparently lesser crafts involve great skill, thought, preparation and, depending on how we define it, imagination.</p>
+                    <p><strong>E</strong> Time changes our view in another way, too. Each new movement implies a reassessment of what has gone before. What is done now alters what was done before. In some cases this is merely self-serving, with the new art using the old to justify itself. It seems to be saying, look at how all of that points to this! Aren't we clever to be the culmination of all that has gone before? But usually it is a matter of re-alerting the sensibility, reminding us not to take things for granted. Take, for example, the cast of the hand of a giant from a circus, made by an anonymous artist around 1889, an item that would now sit happily in any commercial or public gallery. The most significant impact of this piece is on the eye, in the contradiction between unexpected size and verisimilitude. Next, the human element kicks in, you note that the nails are dirt-encrusted, unless this is the caster's decorative addition, and the fingertips extend far beyond them. Then you take in the element of choice, arrangement, art if you like, in the neat, pleated, buttoned sleeve-end that gives the item balance and variation of texture. This is just a moulded hand, yet the part stands utterly for the whole. It reminds us slyly, poignantly, of the full-size original.</p>
+                    <p><strong>F</strong> But is it art? And, if so, why? These are old tediously repeated questions to which artists have often responded, 'It is art because I am an artist and therefore what I do is art. However, what doesn't work for literature works much better for art – works of art do float free of their creators' intensions. Over time the "reader" does become more powerful. Few of us can look at a medieval altarpiece as its painter intended. We believe too little and aesthetically know too much, so we recreate and find new fields of pleasure in the work. Equally, the lack of artistic intention of Paul Richer and other forgotten craftsmen who brushed oil onto flesh, who moulded, cast and decorated in the nineteenth century is now irrelevant. What counts is the surviving object and our response to it. The tests are simple: does it interest the eye, excite the brain, move the mind to reflection and involve the heart. It may, to use the old dichotomy, be beautiful but it is rarely true to any significant depth. One of the constant pleasures of art is its ability to come at us from an unexpected angle and stop us short in wonder.</p>
+                </div>
+                <div id="passage-text-3" class="reading-passage hidden">
+                    <h4 class="text-center">Global Warming in New Zealand</h4>
+                    <p><strong>A</strong> For many environmentalists, the world seems to be getting warmer. As the nearest country of South Polar Region, New Zealand has maintained an upward trend in its average temperature in the past few years. However, the temperature in New Zealand will go up 4oC in the next century while the polar region will go up more than 6oC. The different pictures of temperature stem from its surrounding ocean which acts like the air conditioner. Thus New Zealand is comparatively fortunate.</p>
+                    <p><strong>B</strong> Scientifically speaking, this temperature phenomenon in New Zealand originated from what researchers call “SAM (Southern Annular Mode), which refers to the wind belt that circles the Southern Oceans including New Zealand and Antarctica. Yet recent work has revealed that changes in SAM in New Zealand have resulted in a weakening of moisture during the summer, and more rainfall in other seasons. A bigger problem may turn out to be heavier droughts for agricultural activities because of more water loss from soil, resulting in poorer harvest before winter when the rainfall arrive too late to rescue.</p>
+                    <p><strong>C</strong> Among all the calamities posed by drought, moisture deficit ranks the first. Moisture deficit is that gap between the water plants need during the growing season and the water the earth can offer. Measures of moisture deficit were at their highest since the 1970s in New Zealand. Meanwhile, ecological analyses clearly show moisture deficit is imposed at different growth stage of crops. If moisture deficit occurs around a crucial growth stage, it will cause about 22% reduction in grain yield as opposed to moisture deficit at vegetative phase.</p>
+                    <p><strong>D</strong> Global warming is not only affecting agriculture production. When scientists say the country's snow pack and glaciers are melting at an alarming rate due to global warming, the climate is putting another strain on the local places. For example, when the development of global warming is accompanied by the falling snow line, the local skiing industry comes into a crisis. The snow line may move up as the temperature goes up, and then the snow at the bottom will melt earlier. Fortunately, it is going to be favourable for the local industry to tide over tough periods since the quantities of snowfall in some areas are more likely to increase.</p>
+                    <p><strong>E</strong> What is the reaction of glacier region? The climate change can be reflected in the glacier region in southern New Zealand or land covered by ice and snow. The reaction of a glacier to a climatic change involves a complex chain of processes. Over time periods of years to several decades, cumulative changes in mass balance cause volume and thickness changes, which will affect the flow of ice via altered internal deformation and basal sliding. This dynamic reaction finally leads to glacier length changes, the advance or retreat of glacier tongues. Undoubtedly, glacier mass balance is a more direct signal of annual atmospheric conditions.</p>
+                    <p><strong>F</strong> The latest research result of National Institute of Water and Atmospheric (NIWA) Research shows that glaciers line keeps moving up because of the impacts of global warming. Further losses of ice can be reflected in Mt. Cook Region. By 1996, a 14 km long sector of the glacier had melted down forming a melt lake (Hooker Lake) with a volume. Melting of the glacier front at a rate of 40 m/yr will cause the glacier to retreat at a rather uniform rate. Therefore, the lake will continue to grow until it reaches the glacier bed.</p>
+                    <p><strong>G</strong> A direct result of the melting glaciers is the change of high tides that serves the main factor for sea level rise. The trend of sea level rise will bring a threat to the groundwater system for its hyper-saline groundwater and the pose a possibility to decrease the agricultural production. Many experts believe that the best way to counter this trend is to give a longer-term view of sea level change in New Zealand. Indeed, the coastal boundaries need to be upgraded and redefined.</p>
+                    <p><strong>H</strong> There is no doubt that global warming has affected New Zealand in many aspects. The emphasis on the global warming should be based on the joints efforts of local people and experts who conquer the tough period. For instance, farmers are taking a long term, multi-generational approach to adjust the breeds and species according to the temperature. Agriculturists also find ways to tackle the problems that may bring to the soil. In broad terms, going forward, the systemic resilience that's been going on a long time in the ecosystem will continue.</p>
+                    <p><strong>I</strong> How about animals' reaction? Experts have surprisingly realised that animals have unconventional adaptation to global warming. A study has looked at sea turtles on a few northern beaches in New Zealand and it is very interesting to find that sea turtles can become male or female according to the temperature. Further researches will try to find out how rising temperatures would affect the ratio of sex reversal in their growth. Clearly, the temperature of the nest plays a vital role in the sexes of the baby turtles.</p>
+                    <p><strong>J</strong> Tackling the problems of global warming is never easy in New Zealand, because records show the slow process of global warming may have a different impact on various regions. For New Zealand, the emission of carbon dioxide only accounts for 0.5% of the world's total, which has met the governmental standard. However, New Zealand's effort counts only a tip of the iceberg. So far, global warming has been a world issue that still hangs in an ambiguous future.</p>
+                </div>
+            </div>
+            <div class="resizer" id="resizer"></div>
+            <div class="questions-panel" id="questions-panel">
+                <div id="questions-1" class="question-set">
+                    <div class="questions-container">
+                        <div class="question" data-q-start="1" data-q-end="3">
+                            <div class="question-prompt">
+                                <p><strong>Questions 1-3</strong></p>
+                                <p>Complete the sentences below with <strong>NO MORE THAN THREE WORDS</strong> from the passage.</p>
+                                <p>Write your answers in boxes 1-3 on your answer sheet</p>
+                            </div>
+                            <p>Banana was first eaten as a fruit by humans almost 1 <input type="text" class="answer-input" id="q1" placeholder="1"> years ago.</p>
+                            <p>Banana was first planted in 2 <input type="text" class="answer-input" id="q2" placeholder="2">.</p>
+                            <p>Wild banana's taste is adversely affected by its 3 <input type="text" class="answer-input" id="q3" placeholder="3">.</p>
+                        </div>
+                        <div class="question" data-q-start="4" data-q-end="10">
+                            <div class="question-prompt">
+                                <p><strong>Questions 4-10</strong></p>
+                                <p>Look at the following statements (Questions 4-10) and the list of people below.</p>
+                                <p>Match each statement with the correct person, <strong>A-F</strong>.</p>
+                                <p>Write the correct letter: A-F, in boxes 4-10 on your answer sheet.</p>
+                                <p><em>NB You may use any letter more than once.</em></p>
+                            </div>
+                            <div class="example-box" style="font-size: 15px;">
+                                <p><strong>List of People</strong></p>
+                                <ul class="options-list">
+                                    <li><span class="options-list-label">A</span> Rodomiro Ortiz</li>
+                                    <li><span class="options-list-label">B</span> David Mclaughlin</li>
+                                    <li><span class="options-list-label">C</span> Emile Frison</li>
+                                    <li><span class="options-list-label">D</span> Ronald Romero</li>
+                                    <li><span class="options-list-label">E</span> Luadir Gasparotto</li>
+                                    <li><span class="options-list-label">F</span> Geoff Hawtin</li>
+                                </ul>
+                            </div>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <label for="q4" class="matching-form-label"><strong>4</strong> Pest invasion may seriously damage banana industry.</label>
+                                    <select class="answer-input" id="q4"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q5" class="matching-form-label"><strong>5</strong> The effect of fungal infection in soil is often long-lasting.</label>
+                                    <select class="answer-input" id="q5"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q6" class="matching-form-label"><strong>6</strong> A commercial manufacturer gave up on breeding bananas for disease resistant species.</label>
+                                    <select class="answer-input" id="q6"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q7" class="matching-form-label"><strong>7</strong> Banana disease may develop resistance to chemical sprays.</label>
+                                    <select class="answer-input" id="q7"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q8" class="matching-form-label"><strong>8</strong> A banana disease has destroyed a large number of banana plantations.</label>
+                                    <select class="answer-input" id="q8"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q9" class="matching-form-label"><strong>9</strong> Consumers would no accept genetically altered crop.</label>
+                                    <select class="answer-input" id="q9"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q10" class="matching-form-label"><strong>10</strong> Lessons can be learned from bananas for the other crops.</label>
+                                    <select class="answer-input" id="q10"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question" data-q-start="11" data-q-end="13">
+                            <div class="question-prompt"><p><strong>Questions 11-13</strong></p><p>Do the following statements agree with the information given in Reading Passage 1?</p><p>In boxes 11-13 on your answer sheet, write</p><p><strong>TRUE</strong> if the statement is true</p><p><strong>FALSE</strong> if the statement is false</p><p><strong>NOT GIVEN</strong> if the information is not given in the passage</p></div>
+                            <div class="tf-question" data-q-start="11" data-q-end="11">
+                                <div class="tf-question-line"><span class="tf-question-number">11</span><span class="tf-question-text">Banana is the oldest known fruit.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q11" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q11" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q11" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="12" data-q-end="12">
+                                <div class="tf-question-line"><span class="tf-question-number">12</span><span class="tf-question-text">Gros Michel is still being used as a commercial product.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q12" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q12" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q12" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="13" data-q-end="13">
+                                <div class="tf-question-line"><span class="tf-question-number">13</span><span class="tf-question-text">Banana is a main food in some countries.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q13" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q13" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q13" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="questions-2" class="question-set hidden">
+                    <div class="questions-container">
+                        <div class="question" data-q-start="14" data-q-end="18">
+                            <div class="question-prompt">
+                                <p><strong>Questions 14-18</strong></p>
+                                <p>The Reading Passage has six paragraphs <strong>A-F</strong>.</p>
+                                <p>Which paragraph contains the following information?</p>
+                                <p>Write the correct letter <strong>A-F</strong>, in boxes 14-18 on your answer sheet.</p>
+                            </div>
+                            <div class="matching-form-container">
+                                <div class="matching-form-row">
+                                    <label for="q14" class="matching-form-label"><strong>14</strong> an example of a craftsman's unsuccessful claim to ownership of his work</label>
+                                    <select class="answer-input" id="q14"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q15" class="matching-form-label"><strong>15</strong> an example of how trends in art can change attitudes to an earlier work</label>
+                                    <select class="answer-input" id="q15"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q16" class="matching-form-label"><strong>16</strong> the original function of a particular type of art</label>
+                                    <select class="answer-input" id="q16"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q17" class="matching-form-label"><strong>17</strong> ways of assessing whether or not an object is art</label>
+                                    <select class="answer-input" id="q17"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                                <div class="matching-form-row">
+                                    <label for="q18" class="matching-form-label"><strong>18</strong> how artists deal with the less interesting aspects of their work</label>
+                                    <select class="answer-input" id="q18"><option value=""></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question" data-q-start="19" data-q-end="24">
+                            <div class="question-prompt"><p><strong>Questions 19-24</strong></p><p>Do the following statements agree with the claims of the writer in Reading Passage 2?</p><p>In boxes 19-24 on your answer sheet, write</p><p><strong>YES</strong> if the statement is true</p><p><strong>NO</strong> if the statement is false</p><p><strong>NOT GIVEN</strong> if the information is not given in the passage</p></div>
+                            <div class="tf-question" data-q-start="19" data-q-end="19">
+                                <div class="tf-question-line"><span class="tf-question-number">19</span><span class="tf-question-text">Nineteenth-century sculptors admired the speed and realism of life-casting.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q19" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q19" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q19" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="20" data-q-end="20">
+                                <div class="tf-question-line"><span class="tf-question-number">20</span><span class="tf-question-text">Rodin believed the quality of the life-casting would improve if a slower process were used.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q20" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q20" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q20" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="21" data-q-end="21">
+                                <div class="tf-question-line"><span class="tf-question-number">21</span><span class="tf-question-text">The importance of painting has decreased with the development of colour photography.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q21" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q21" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q21" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="22" data-q-end="22">
+                                <div class="tf-question-line"><span class="tf-question-number">22</span><span class="tf-question-text">Life-casting requires more skill than sculpture does.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q22" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q22" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q22" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="23" data-q-end="23">
+                                <div class="tf-question-line"><span class="tf-question-number">23</span><span class="tf-question-text">New art encourages us to look at earlier work in a fresh way.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q23" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q23" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q23" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="24" data-q-end="24">
+                                <div class="tf-question-line"><span class="tf-question-number">24</span><span class="tf-question-text">The intended meaning of a work of art can get lost over time.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q24" value="YES"> YES</label><label class="tf-option"><input type="radio" name="q24" value="NO"> NO</label><label class="tf-option"><input type="radio" name="q24" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                        </div>
+                        <div class="question" data-q-start="25" data-q-end="26">
+                            <div class="question-prompt">
+                                <p><strong>Questions 25-26</strong></p>
+                                <p>Choose the correct letter, <strong>A, B, C or D</strong>.</p>
+                                <p>Write the correct letter in boxes 25 and 26 on your answer sheet.</p>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="25" data-q-end="25">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="25">25</span><span class="mcq-question-title">The most noticeable contrast in the cast of the giant's hand is between the</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q25" value="A"> A. dirt and decoration</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q25" value="B"> B. size and realism</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q25" value="C"> C. choice and arrangement</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q25" value="D"> D. balance and texture</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="26" data-q-end="26">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="26">26</span><span class="mcq-question-title">According to the writer, the importance of any artistic object lies in</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q26" value="A"> A. the artist's intentions</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q26" value="B"> B. the artist's beliefs</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q26" value="C"> C. the relevance it has to modern life</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q26" value="D"> D. the way we respond to it</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="questions-3" class="question-set hidden">
+                    <div class="questions-container">
+                        <div class="question" data-q-start="27" data-q-end="32">
+                            <div class="question-prompt">
+                                <p><strong>Questions 27-32</strong></p>
+                                <p>Choose the correct letter, <strong>A, B, C or D</strong>.</p>
+                                <p>Write the correct letter in boxes 27-32 on your answer sheet.</p>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="27" data-q-end="27">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="27">27</span><span class="mcq-question-title">What is the main idea of the first paragraph?</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q27" value="A"> A. The temperature in the polar region will increase less than that in New Zealand in the next century.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q27" value="B"> B. The weather and climate of New Zealand is very important to its people because of its close location to the polar region.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q27" value="C"> C. The air condition in New Zealand will maintain a high quality because of the ocean.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q27" value="D"> D. The temperature of New Zealand will increase less than that of other regions in the next 100 years because it is surrounded by sea.</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="28" data-q-end="28">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="28">28</span><span class="mcq-question-title">What is one effect of the wind belt that circles the Southern Oceans?</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q28" value="A"> A. New Zealand will have more moisture in winds in summer.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q28" value="B"> B. New Zealand needs to face droughts more often in hotter months in a year.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q28" value="C"> C. Soil water will increase as a result of weakening moisture in the winds.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q28" value="D"> D. Agricultural production will be reduced as a result of more rainfall in other seasons.</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="29" data-q-end="29">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="29">29</span><span class="mcq-question-title">What does “moisture deficit” mean to the grain and crops?</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q29" value="A"> A. The growing condition will be very tough for crops.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q29" value="B"> B. The growing season of some plants can hardly be determined.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q29" value="C"> C. There will be a huge gap between the water plants needed and the water the earth can offer.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q29" value="D"> D. The soil of grain and crops in New Zealand reached its lowest production since 1970s.</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="30" data-q-end="30">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="30">30</span><span class="mcq-question-title">What changes will happen to skiing industry due to the global warming phenomenon?</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q30" value="A"> A. The skiing station may lower the altitude of skiing.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q30" value="B"> B. Part of the skiing station needs to move to the north.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q30" value="C"> C. The snowfall may increase in part of the skiing station.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q30" value="D"> D. The local skiing station may likely to make a profit because of the snowfall increase.</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="31" data-q-end="31">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="31">31</span><span class="mcq-question-title">Cumulative changes over a long period of time in mass balance will lead to</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q31" value="A"> A. alterations in the volume and thickness of glaciers.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q31" value="B"> B. faster changes in internal deformation and basal sliding.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q31" value="C"> C. bigger length of glaciers.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q31" value="D"> D. retreat of glacier tongues as a result of change in annual atmospheric conditions.</label></div>
+                                </div>
+                            </div>
+                            <div class="multi-choice-question" data-q-start="32" data-q-end="32">
+                                <div class="multi-choice-options">
+                                    <p class="mcq-question-text"><span class="mcq-question-number question-number-box" data-q-number="32">32</span><span class="mcq-question-title">Why does the writer mention NIWA in the sixth paragraph?</span></p>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q32" value="A"> A. To use a particular example to explain the effects brought by glacier melting.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q32" value="B"> B. To emphasize the severance of the further loss of ice in Mt. Cook Region.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q32" value="C"> C. To alarm the reader of melting speed of glaciers at a uniform rate.</label></div>
+                                    <div class="multi-choice-option"><label><input type="radio" name="q32" value="D"> D. To note the lake in the region will disappear when it reach the glacier bed.</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question" data-q-start="33" data-q-end="35">
+                            <div class="question-prompt">
+                                <p><strong>Questions 33-35</strong></p>
+                                <p>Complete the summary below.</p>
+                                <p>Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>
+                                <p>Write your answers in boxes 33-35 on your answer sheet.</p>
+                            </div>
+                            <p>Research data shows that sea level has a closely relation with the change of climate. The major reason for the increase in sea level is connected with 33 <input type="text" class="answer-input" id="q33" placeholder="33">. The increase in sea level is also said to have a threat to the underground water system, the destruction of which caused by rise of sea level will lead to a high probability of reduction in 34 <input type="text" class="answer-input" id="q34" placeholder="34">. In the long run, New Zealanders may have to improve the 35 <input type="text" class="answer-input" id="q35" placeholder="35"> if they want to diminish the effect change in sea levels.</p>
+                        </div>
+                        <div class="question" data-q-start="36" data-q-end="40">
+                            <div class="question-prompt"><p><strong>Questions 36-40</strong></p><p>Do the following statements agree with the claims of the writer in Reading Passage 3?</p><p>In boxes 36-40 on your answer sheet, write</p><p><strong>TRUE</strong> if the statement agrees with the claims of the writer.</p><p><strong>FALSE</strong> if the statement contradicts the claims of the writer.</p><p><strong>NOT GIVEN</strong> if it is impossible to say what the writer thinks about it.</p></div>
+                            <div class="tf-question" data-q-start="36" data-q-end="36">
+                                <div class="tf-question-line"><span class="tf-question-number">36</span><span class="tf-question-text">Farmers are less responsive to climate change than agriculturists.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q36" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q36" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q36" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="37" data-q-end="37">
+                                <div class="tf-question-line"><span class="tf-question-number">37</span><span class="tf-question-text">Agricultural sector is too conservative and deal with climate change.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q37" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q37" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q37" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="38" data-q-end="38">
+                                <div class="tf-question-line"><span class="tf-question-number">38</span><span class="tf-question-text">Turtle is vulnerable to climate change.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q38" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q38" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q38" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="39" data-q-end="39">
+                                <div class="tf-question-line"><span class="tf-question-number">39</span><span class="tf-question-text">The global warming is going slowly, and it may have different effects on different areas in New Zealand.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q39" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q39" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q39" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                            <div class="tf-question" data-q-start="40" data-q-end="40">
+                                <div class="tf-question-line"><span class="tf-question-number">40</span><span class="tf-question-text">New Zealand must cut carbon dioxide emission if they want to solve the problem of global warming.</span></div>
+                                <div class="tf-options"><label class="tf-option"><input type="radio" name="q40" value="TRUE"> TRUE</label><label class="tf-option"><input type="radio" name="q40" value="FALSE"> FALSE</label><label class="tf-option"><input type="radio" name="q40" value="NOT GIVEN"> NOT GIVEN</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows">
+        <button class="nav-arrow" onclick="previousQuestion()" id="prevBtn">‹</button>
+        <button class="nav-arrow" onclick="nextQuestion()" id="nextBtn">›</button>
+    </div>
+
+    <!-- FOOTER_NAV_START -->
+    <nav class="nav-row perScorableItem" aria-label="Questions">
+        <div class="footer__questionWrapper___1tZ46 multiple selected" role="tablist">
+            <button role="tab" class="footer__questionNo___3WNct" onclick="switchToPart(1)">
+                <span>
+                    <span aria-hidden="true" class="section-prefix">Part </span>
+                    <span class="sectionNr" aria-hidden="true">1</span>
+                    <span class="attemptedCount" aria-hidden="true">0 of 13</span>
+                </span>
+            </button>
+            <div class="footer__subquestionWrapper___9GgoP">
+                <button class="subQuestion scorable-item" onclick="goToQuestion(1)"><span class="sr-only">Question 1</span><span aria-hidden="true">1</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(2)"><span class="sr-only">Question 2</span><span aria-hidden="true">2</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(3)"><span class="sr-only">Question 3</span><span aria-hidden="true">3</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(4)"><span class="sr-only">Question 4</span><span aria-hidden="true">4</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(5)"><span class="sr-only">Question 5</span><span aria-hidden="true">5</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(6)"><span class="sr-only">Question 6</span><span aria-hidden="true">6</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(7)"><span class="sr-only">Question 7</span><span aria-hidden="true">7</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(8)"><span class="sr-only">Question 8</span><span aria-hidden="true">8</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(9)"><span class="sr-only">Question 9</span><span aria-hidden="true">9</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(10)"><span class="sr-only">Question 10</span><span aria-hidden="true">10</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(11)"><span class="sr-only">Question 11</span><span aria-hidden="true">11</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(12)"><span class="sr-only">Question 12</span><span aria-hidden="true">12</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(13)"><span class="sr-only">Question 13</span><span aria-hidden="true">13</span></button>
+            </div>
+        </div>
+        <div class="footer__questionWrapper___1tZ46 multiple" role="tablist">
+            <button role="tab" class="footer__questionNo___3WNct" onclick="switchToPart(2)">
+                <span>
+                    <span aria-hidden="true" class="section-prefix">Part </span>
+                    <span class="sectionNr" aria-hidden="true">2</span>
+                    <span class="attemptedCount" aria-hidden="true">0 of 13</span>
+                </span>
+            </button>
+            <div class="footer__subquestionWrapper___9GgoP">
+                <button class="subQuestion scorable-item" onclick="goToQuestion(14)"><span class="sr-only">Question 14</span><span aria-hidden="true">14</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(15)"><span class="sr-only">Question 15</span><span aria-hidden="true">15</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(16)"><span class="sr-only">Question 16</span><span aria-hidden="true">16</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(17)"><span class="sr-only">Question 17</span><span aria-hidden="true">17</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(18)"><span class="sr-only">Question 18</span><span aria-hidden="true">18</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(19)"><span class="sr-only">Question 19</span><span aria-hidden="true">19</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(20)"><span class="sr-only">Question 20</span><span aria-hidden="true">20</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(21)"><span class="sr-only">Question 21</span><span aria-hidden="true">21</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(22)"><span class="sr-only">Question 22</span><span aria-hidden="true">22</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(23)"><span class="sr-only">Question 23</span><span aria-hidden="true">23</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(24)"><span class="sr-only">Question 24</span><span aria-hidden="true">24</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(25)"><span class="sr-only">Question 25</span><span aria-hidden="true">25</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(26)"><span class="sr-only">Question 26</span><span aria-hidden="true">26</span></button>
+            </div>
+        </div>
+        <div class="footer__questionWrapper___1tZ46 multiple" role="tablist">
+            <button role="tab" class="footer__questionNo___3WNct" onclick="switchToPart(3)">
+                <span>
+                    <span aria-hidden="true" class="section-prefix">Part </span>
+                    <span class="sectionNr" aria-hidden="true">3</span>
+                    <span class="attemptedCount" aria-hidden="true">0 of 14</span>
+                </span>
+            </button>
+            <div class="footer__subquestionWrapper___9GgoP">
+                <button class="subQuestion scorable-item" onclick="goToQuestion(27)"><span class="sr-only">Question 27</span><span aria-hidden="true">27</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(28)"><span class="sr-only">Question 28</span><span aria-hidden="true">28</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(29)"><span class="sr-only">Question 29</span><span aria-hidden="true">29</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(30)"><span class="sr-only">Question 30</span><span aria-hidden="true">30</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(31)"><span class="sr-only">Question 31</span><span aria-hidden="true">31</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(32)"><span class="sr-only">Question 32</span><span aria-hidden="true">32</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(33)"><span class="sr-only">Question 33</span><span aria-hidden="true">33</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(34)"><span class="sr-only">Question 34</span><span aria-hidden="true">34</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(35)"><span class="sr-only">Question 35</span><span aria-hidden="true">35</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(36)"><span class="sr-only">Question 36</span><span aria-hidden="true">36</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(37)"><span class="sr-only">Question 37</span><span aria-hidden="true">37</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(38)"><span class="sr-only">Question 38</span><span aria-hidden="true">38</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(39)"><span class="sr-only">Question 39</span><span aria-hidden="true">39</span></button>
+                <button class="subQuestion scorable-item" onclick="goToQuestion(40)"><span class="sr-only">Question 40</span><span aria-hidden="true">40</span></button>
+            </div>
+        </div>
+
+        <button id="deliver-button" aria-label="Review your answers" class="footer__deliverButton___3FM07">
+            <i class="fa fa fa-check" aria-hidden="true"></i>
+            <span>Check Answers</span>
+        </button>
+    </nav>
+    <!-- FOOTER_NAV_END -->
+
+    <!-- Context Menu - 3 màu trực tiếp -->
+    <div id="contextMenu" class="context-menu">
+        <div id="menu-note" class="context-menu-item" onclick="addNote()">
+            📝 Take note
+        </div>
+        <div id="menu-highlight-colors" class="context-menu-item" style="display: flex; gap: 15px; justify-content: center; padding: 12px 16px;">
+            <button type="button" class="color-btn yellow" onclick="highlightText('yellow')" title="Highlight Yellow"></button>
+            <button type="button" class="color-btn green" onclick="highlightText('green')" title="Highlight Green"></button>
+            <button type="button" class="color-btn pink" onclick="highlightText('pink')" title="Highlight Pink"></button>
+        </div>
+        <div id="menu-clear" class="context-menu-item" onclick="clearHighlight()">
+            🗑️ Delete
+        </div>
+        <div id="menu-clear-all" class="context-menu-item" onclick="clearAllHighlights()">
+            🗑️ Delete all
+        </div>
+    </div>
+
+    <div id="results-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeResultsModal()">&times;</button>
+            <h2>Results</h2>
+            <div class="results-summary">
+                <p>Score: <span id="results-score"></span> / 40</p>
+                <p>IELTS Band: <span id="results-band"></span></p>
+            </div>
+            <div id="results-details" class="results-details-container">
+                <!-- Results for each question will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>window.testMeta = {"totalQuestions":40,"parts":[{"part":1,"start":1,"end":13},{"part":2,"start":14,"end":26},{"part":3,"start":27,"end":40}],"correctAnswers":{"1":"TEN THOUSAND","2":"SOUTH-EAST ASIA","3":["HARD SEEDS","SEEDS"],"4":"F","5":"A","6":"D","7":"C","8":"E","9":"B","10":"C","11":"NOT GIVEN","12":"FALSE","13":"TRUE","14":"C","15":"E","16":"B","17":"F","18":"D","19":"NO","20":"NO","21":"NO","22":"NOT GIVEN","23":"NO","24":"YES","25":"B","26":"D","27":"D","28":"B","29":"A","30":"C","31":"A","32":"A","33":"HIGH TIDES","34":"AGRICULTURAL PRODUCTION","35":"COASTAL BOUNDARIES","36":"NOT GIVEN","37":"NOT GIVEN","38":"NO","39":"YES","40":"NO"}};</script>
+    
+    <script>
+    window.testExplanations = {
+        "1": 'Trích dẫn: "Agricultural scientists believe that the first edible banana was discovered around ten thousand years ago."',
+        "2": 'Trích dẫn: "It was first propagated in the jungles of South-East Asia at the end of the last ice age."',
+        "3": 'Trích dẫn: "The wild banana … contains a mass of hard seeds that make the fruit virtually inedible."',
+        "4": 'Trích dẫn: "When some pest or disease comes along, severe epidemics can occur, says Geoff Hawtin."',
+        "5": 'Trích dẫn: "Once the fungus gets into the soil it remains there for many years."',
+        "6": 'Trích dẫn: "We supported a breeding programme for 40 years … It was very expensive and we got nothing back."',
+        "7": 'Trích dẫn: "As soon as you bring in a new fungicide, they develop resistance."',
+        "8": 'Trích dẫn: "Most of the banana fields in Amazonia have already been destroyed by the disease."',
+        "9": 'Trích dẫn: "There are serious questions about consumer acceptance."',
+        "10": 'Trích dẫn: "The state of the banana can teach a broader lesson … for other crops."',
+        "11": 'Bài chỉ nói chuối là một trong những cây trồng lâu đời nhất ("The banana is among the world’s oldest crops"), không khẳng định đây là loại quả lâu đời nhất. NOT GIVEN.',
+        "12": 'Trích dẫn: "They … had to abandon the Gros Michel … During the 1960s, [Cavendish] replaced the Gros Michel on supermarket shelves." (Gros Michel đã bị bỏ và được Cavendish thay thế).',
+        "13": 'Trích dẫn: "Half a billion people in Asia and Africa depend on bananas. Bananas provide the largest source of calories and are eaten daily." (Chuối là nguồn calo chính và được ăn hằng ngày).',
+        "14": 'Trích dẫn: "A moulder whose mask … had been reproduced and sold without his permission was judged to have no rights to the image."',
+        "15": 'Trích dẫn: "Each new movement implies a reassessment of what has gone before."',
+        "16": 'Trích dẫn: "At the time, the casts were used for medical research."',
+        "17": 'Trích dẫn: "The tests are simple: does it interest the eye, excite the brain, move the mind to reflection and involve the heart."',
+        "18": 'Trích dẫn: "Painters have always used technical back-up such as studio assistants to do the boring bits."',
+        "19": 'Trích dẫn: "Life-casting was considered inferior to sculpture … Their virtues of speed and unwavering realism also implied their limitations." (Các nhà điêu khắc không ngưỡng mộ tốc độ và tính chân thực).',
+        "20": 'Trích dẫn: "Life-casting happens fast but it doesn’t make Art." (Ông không nói làm chậm hơn sẽ cải thiện chất lượng).',
+        "21": 'Trích dẫn: "But painting has proved robust. Photography has changed it, of course." (Hội họa vẫn bền vững).',
+        "22": 'Bài nói life-casting đòi hỏi kỹ thuật nhưng không so sánh trực tiếp rằng nó cần nhiều kỹ năng hơn điêu khắc. NOT GIVEN.',
+        "23": 'Trích dẫn: "Each new movement implies a reassessment of what has gone before … in some cases this is merely self-serving." (Bài không khẳng định nghệ thuật mới "khuyến khích" chúng ta nhìn tác phẩm cũ theo hướng mới).',
+        "24": 'Trích dẫn: "Works of art do float free of their creators’ intentions … Few of us can look at a medieval altarpiece as its painter intended."',
+        "25": 'Trích dẫn: "The most significant impact … is … the contradiction between unexpected size and verisimilitude." (Verisimilitude nghĩa là tính chân thực, realism).',
+        "26": 'Trích dẫn: "What counts is the surviving object and our response to it."',
+        "27": 'Trích dẫn: "The temperature in New Zealand will go up 4°C … while the polar region will go up more than 6°C … its surrounding ocean acts like the air conditioner."',
+        "28": 'Trích dẫn: "Changes in SAM … resulted in a weakening of moisture during the summer … [and] heavier droughts for agricultural activities."',
+        "29": 'Trích dẫn: "If moisture deficit occurs around a crucial growth stage, it will cause about 22% reduction in grain yield." (Thiếu ẩm làm điều kiện sinh trưởng khó khăn).',
+        "30": 'Trích dẫn: "The quantities of snowfall in some areas are more likely to increase."',
+        "31": 'Trích dẫn: "Cumulative changes in mass balance cause volume and thickness changes."',
+        "32": 'Trích dẫn: "Further losses of ice can be reflected in Mt. Cook Region … forming a melt lake." (NIWA được nhắc đến để đưa ví dụ cụ thể về hậu quả của băng tan tại vùng Mt. Cook).',
+        "33": 'Trích dẫn: "A direct result of the melting glaciers is the change of high tides that serves the main factor for sea level rise."',
+        "34": 'Trích dẫn: "The threat to the groundwater system … pose[s] a possibility to decrease the agricultural production."',
+        "35": 'Trích dẫn: "The coastal boundaries need to be upgraded and redefined."',
+        "36": 'Bài nói cả nông dân và nhà nông học đều phản ứng, nhưng không so sánh nhóm nào kém nhạy bén hơn. NOT GIVEN.',
+        "37": 'Bài không nói ngành nông nghiệp quá bảo thủ hoặc chống lại việc xử lý biến đổi khí hậu. NOT GIVEN.',
+        "38": 'Trích dẫn: "Animals have unconventional adaptation to global warming … sea turtles can become male or female according to the temperature." (Đoạn văn mô tả khả năng thích nghi khác thường của rùa, không nói chúng dễ bị tổn thương).',
+        "39": 'Trích dẫn: "The slow process of global warming may have a different impact on various regions."',
+        "40": 'Trích dẫn: "New Zealand’s emission of carbon dioxide only accounts for 0.5% of the world’s total … global warming has been a world issue." (Tác giả nhấn mạnh đây là vấn đề toàn cầu; việc New Zealand tự cắt giảm phát thải không đủ để giải quyết toàn bộ vấn đề).'
+    };
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const launchScreen = document.getElementById('launchScreen');
+        const app = document.getElementById('app');
+        const startNormalBtn = document.getElementById('startNormalBtn');
+        const launchTitle = document.getElementById('launchTestTitle');
+        if (launchTitle && document.title) {
+            launchTitle.textContent = document.title;
+        }
+        let examStarted = false;
+
+        const beginExam = () => {
+            if (examStarted) return;
+            examStarted = true;
+            if (launchScreen) launchScreen.style.display = 'none';
+            if (app) app.style.display = 'block';
+            initialize();
+        };
+
+        if (startNormalBtn) {
+            startNormalBtn.addEventListener('click', beginExam);
+        }
+        
+        const testMeta = window.testMeta || { totalQuestions: 40, parts: [], correctAnswers: {} };
+        const partRanges = testMeta.parts || [];
+        const correctAnswers = testMeta.correctAnswers || {};
+        const totalQuestions = testMeta.totalQuestions || Object.keys(correctAnswers).length;
+
+        let currentPassage = partRanges[0]?.part || 1;
+        let currentQuestion = partRanges[0]?.start || 1;
+        let pendingSelectionRange = null;
+        let activeAnnotationTarget = null;
+        let timeInSeconds = 3600;
+        let timerInterval;
+        let hasSubmitted = false;
+        let activeQuestionElement = null;
+        const markedQuestions = new Set();
+        const markButtons = new Map();
+        const COUNTDOWN_THRESHOLD = 300;
+
+        const timerDisplay = document.querySelector('.timer-display');
+        const timerToggleButton = document.getElementById('timer-toggle-btn');
+        const timerResetButton = document.getElementById('timer-reset-btn');
+        const deliverButton = document.getElementById('deliver-button');
+        const resizer = document.getElementById('resizer');
+        const passagePanel = document.getElementById('passage-panel');
+        const questionsPanel = document.getElementById('questions-panel');
+        const contextMenu = document.getElementById('contextMenu');
+        const menuHighlightColors = document.getElementById('menu-highlight-colors');
+        const menuNote = document.getElementById('menu-note');
+        const menuClear = document.getElementById('menu-clear');
+        const menuClearAll = document.getElementById('menu-clear-all');
+
+        const playIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M8 5v14l11-7L8 5z"/></svg>';
+        const pauseIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        const bookmarkIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>';
+
+        function initialize() {
+            startTimer();
+            const firstPart = partRanges[0]?.part || 1;
+            switchToPart(firstPart);
+            
+            document.body.addEventListener('input', updateAllIndicators);
+            document.body.addEventListener('change', updateAllIndicators);
+            deliverButton.addEventListener('click', checkAnswers);
+            timerToggleButton.addEventListener('click', toggleTimer);
+            timerResetButton.addEventListener('click', resetTimer);
+
+            document.querySelectorAll('[data-q-start]').forEach(el => {
+                el.addEventListener('click', (ev) => {
+                    if (ev.target.closest('input, select, label, .tf-options, .multi-choice-option, .matching-form-row')) {
+                        return;
+                    }
+                    const qNum = parseInt(el.dataset.qStart, 10);
+                    if (currentQuestion !== qNum) {
+                        goToQuestion(qNum);
+                    }
+                });
+            });
+
+            resizer.addEventListener('mousedown', initResize, false);
+            initializeContextMenu();
+            initializeQuestionMarkers();
+        }
+
+        // Tự động highlight đoạn văn chứa evidence khi bấm vào khung giải thích
+        function highlightEvidenceInPassage(explanationText) {
+            let targetPhrase = "";
+            const match = explanationText.match(/"([^"]+)"/);
+            if (match) {
+                targetPhrase = match[1].trim();
+            } else {
+                targetPhrase = explanationText.replace(/^.*?Trích dẫn:\s*/i, "").trim();
+            }
+            if (!targetPhrase) return;
+
+            let cleanQuery = targetPhrase.replace(/^\.\.\./, "").replace(/\.\.\.$/, "").trim();
+            if (!cleanQuery) return;
+
+            const currentPassageEl = passagePanel.querySelector('.reading-passage:not(.hidden)');
+            if (!currentPassageEl) return;
+
+            const walker = document.createTreeWalker(currentPassageEl, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            let found = false;
+
+            while (node = walker.nextNode()) {
+                const text = node.nodeValue;
+                const index = text.indexOf(cleanQuery);
+                if (index !== -1) {
+                    const range = document.createRange();
+                    range.setStart(node, index);
+                    range.setEnd(node, index + cleanQuery.length);
+                    
+                    const span = document.createElement('span');
+                    span.className = 'annotation annotation-highlight highlight-blue';
+                    span.dataset.type = 'highlight';
+                    span.dataset.color = 'blue';
+                    
+                    try {
+                        range.surroundContents(span);
+                        span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        found = true;
+                    } catch (e) {}
+                    break;
+                }
+            }
+
+            if (!found) {
+                const words = cleanQuery.split(/\s+/).filter(w => w.length > 4);
+                if (words.length > 0) {
+                    const keyword = words[0];
+                    walker.currentNode = currentPassageEl;
+                    while (node = walker.nextNode()) {
+                        const text = node.nodeValue;
+                        const index = text.indexOf(keyword);
+                        if (index !== -1) {
+                            const range = document.createRange();
+                            range.setStart(node, index);
+                            range.setEnd(node, Math.min(index + cleanQuery.length, text.length));
+                            
+                            const span = document.createElement('span');
+                            span.className = 'annotation annotation-highlight highlight-blue';
+                            span.dataset.type = 'highlight';
+                            span.dataset.color = 'blue';
+                            
+                            try {
+                                range.surroundContents(span);
+                                span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            } catch (e) {}
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        function checkAnswers() {
+            if (hasSubmitted) return;
+            hasSubmitted = true;
+            const allInputs = document.querySelectorAll('input, select, textarea');
+            allInputs.forEach(input => { input.disabled = true; });
+
+            deliverButton.disabled = true;
+            deliverButton.style.cursor = 'not-allowed';
+            
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerToggleButton.innerHTML = playIcon;
+            let score = 0;
+            const resultsDetailsContainer = document.getElementById('results-details');
+            resultsDetailsContainer.innerHTML = '';
+
+            document.querySelectorAll('.correct, .incorrect, .correct-answer-highlight').forEach(el => {
+                el.classList.remove('correct', 'incorrect', 'correct-answer-highlight');
+            });
+            document.querySelectorAll('.correct-answer-display').forEach(el => el.remove());
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionKey = String(i);
+                const correctAnswer = correctAnswers[questionKey];
+                let userAnswer = '';
+                let isCorrect = false;
+                let userAnswerDisplay = 'Not Answered';
+                const correctAnswerText = Array.isArray(correctAnswer) ? correctAnswer.join(' / ') : correctAnswer;
+
+                const textInput = document.getElementById(`q${i}`);
+                const radioGroup = document.querySelectorAll(`input[name="q${i}"][type="radio"]`);
+                const selectInput = document.getElementById(`q${i}`);
+                
+                if (textInput && textInput.tagName === 'INPUT' && textInput.type === 'text') {
+                    const element = textInput.closest('.matching-form-row') || textInput;
+                    userAnswer = textInput.value.trim();
+                    userAnswerDisplay = userAnswer || 'Not Answered';
+
+                    isCorrect = Array.isArray(correctAnswer) ?
+                        correctAnswer.some(ans => userAnswer.toLowerCase() === ans.toLowerCase()) :
+                        userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+                    
+                    if (isCorrect) {
+                        score++;
+                        element.classList.add('correct');
+                    } else {
+                        element.classList.add('incorrect');
+                        const correctAnswerSpan = document.createElement('span');
+                        correctAnswerSpan.className = 'correct-answer-display';
+                        correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswerText}</span>`;
+                        textInput.parentNode.insertBefore(correctAnswerSpan, textInput.nextSibling);
+                    }
+                }
+                else if (selectInput && selectInput.tagName === 'SELECT') {
+                    const element = selectInput.closest('.matching-form-row') || selectInput;
+                    userAnswer = selectInput.value;
+                    userAnswerDisplay = userAnswer || 'Not Answered';
+
+                    isCorrect = userAnswer === correctAnswer;
+                    
+                    if (isCorrect) {
+                        score++;
+                        element.classList.add('correct');
+                    } else {
+                        element.classList.add('incorrect');
+                        const correctAnswerSpan = document.createElement('span');
+                        correctAnswerSpan.className = 'correct-answer-display';
+                        correctAnswerSpan.innerHTML = `&nbsp;➜&nbsp;<span class="correct-answer-highlight">${correctAnswerText}</span>`;
+                        selectInput.parentNode.insertBefore(correctAnswerSpan, selectInput.nextSibling);
+                    }
+                }
+                else if (radioGroup.length > 0) {
+                    const questionContainer = radioGroup[0].closest('.tf-question') || radioGroup[0].closest('.multi-choice-question');
+                    const checkedRadio = document.querySelector(`input[name="q${i}"]:checked`);
+
+                    if (checkedRadio) {
+                        userAnswer = checkedRadio.value;
+                        userAnswerDisplay = userAnswer;
+                        isCorrect = userAnswer === correctAnswer;
+
+                        const userLabel = checkedRadio.closest('.tf-option, .multi-choice-option');
+                        if (userLabel) {
+                            userLabel.classList.add(isCorrect ? 'correct' : 'incorrect');
+                        }
+                    }
+
+                    if (isCorrect) {
+                        score++;
+                    } else {
+                        if (questionContainer){
+                            const correctOptionEl = questionContainer.querySelector(`input[value="${correctAnswerText}"]`);
+                            if (correctOptionEl) {
+                                const correctLabel = correctOptionEl.closest('.tf-option, .multi-choice-option');
+                                if (correctLabel) {
+                                    correctLabel.classList.add('correct-answer-highlight');
+                                }
+                            }
+                        }
+                    }
+                }
+                   
+                const resultRow = `
+                    <div class="result-row ${isCorrect ? '' : 'incorrect'}">
+                        <span class="q-num">${i}</span>
+                        <span class="user-ans">${userAnswerDisplay}</span>
+                        <span class="correct-ans">${correctAnswerText}</span>
+                    </div>`;
+                resultsDetailsContainer.innerHTML += resultRow;
+                
+                const navButton = document.querySelector(`.subQuestion[onclick="goToQuestion(${i})"]`);
+                if (navButton) {
+                    navButton.classList.remove('answered', 'active');
+                    navButton.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+
+                if (window.testExplanations && window.testExplanations[i]) {
+                    let container = null;
+                    if (textInput && textInput.tagName === 'INPUT' && textInput.type === 'text') {
+                        container = textInput.closest('li') || textInput.closest('p');
+                    } else if (selectInput && selectInput.tagName === 'SELECT') {
+                        container = selectInput.closest('.matching-form-row');
+                    } else if (radioGroup.length > 0) {
+                        container = radioGroup[0].closest('.tf-question') || radioGroup[0].closest('.multi-choice-question');
+                    }
+                    
+                    if (container) {
+                        let expElement = document.createElement('div');
+                        expElement.className = 'explanation-box show';
+                        expElement.dataset.forQ = i;
+                        expElement.innerHTML = `<div class="explanation-title">💡 Giải thích câu ${i} (Bấm vào đây để xem evidence):</div><div>${window.testExplanations[i]}</div>`;
+                        
+                        expElement.addEventListener('click', () => {
+                            highlightEvidenceInPassage(window.testExplanations[i]);
+                        });
+
+                        const checkContainer = container.classList.contains('matching-form-row') || container.tagName === 'P' ? container.parentNode : container;
+                        if (!checkContainer.querySelector(`.explanation-box[data-for-q="${i}"]`)) {
+                            checkContainer.appendChild(expElement);
+                        }
+                    }
+                }
+            }
+
+            document.getElementById('results-score').textContent = score;
+            document.getElementById('results-band').textContent = calculateBandScore(score);
+            document.getElementById('results-modal').classList.remove('hidden');
+        }
+
+        function calculateBandScore(score) {
+            if (score >= 39) return '9.0';
+            const mapping = {
+                40: 9.0, 39: 9.0, 38: 8.5, 37: 8.5, 36: 8.0, 35: 8.0, 34: 7.5,
+                33: 7.5, 32: 7.0, 31: 7.0, 30: 7.0, 29: 6.5, 28: 6.5, 27: 6.5,
+                26: 6.0, 25: 6.0, 24: 6.0, 23: 5.5, 22: 5.5, 21: 5.5, 20: 5.5,
+                19: 5.0, 18: 5.0, 17: 5.0, 16: 5.0, 15: 5.0, 14: 4.5, 13: 4.5,
+                12: 4.0, 11: 4.0, 10: 4.0, 9: 3.5, 8: 3.5, 7: 3.0, 6: 3.0,
+                5: 2.5, 4: 2.5
+            };
+            if (score <= 0) return 0.0;
+            if (score === 1) return 1.0;
+            if (score <= 3) return 2.0;
+            if (score <= 5) return 2.5;
+            return mapping[score] || 0.0;
+        }
+
+        window.closeResultsModal = function() {
+            document.getElementById('results-modal').classList.add('hidden');
+        }
+
+        const getFirstQuestionOfPart = (partNumber) => {
+            const match = partRanges.find(p => p.part === partNumber);
+            return match ? match.start : 1;
+        };
+
+        const getPartForQuestion = (questionNumber) => {
+            const match = partRanges.find(p => questionNumber >= p.start && questionNumber <= p.end);
+            return match ? match.part : partRanges[0]?.part || 1;
+        };
+
+        function switchToPart(partNumber) {
+            currentPassage = partNumber;
+            document.querySelectorAll('.reading-passage, .question-set, .part-header').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById(`passage-text-${partNumber}`).classList.remove('hidden');
+            document.getElementById(`questions-${partNumber}`).classList.remove('hidden');
+            document.getElementById(`part-header-${partNumber}`).classList.remove('hidden');
+
+            document.querySelectorAll('.footer__questionWrapper___1tZ46').forEach((wrapper, index) => {
+                wrapper.classList.toggle('selected', (index + 1) === partNumber);
+            });
+            goToQuestion(getFirstQuestionOfPart(partNumber));
+        }
+        
+        function goToQuestion(questionNumber) {
+            currentQuestion = questionNumber;
+            const passageNumber = getPartForQuestion(questionNumber);
+            if (currentPassage !== passageNumber) {
+                switchToPart(passageNumber);
+                return; 
+            }
+            if (activeQuestionElement) {
+                activeQuestionElement.classList.remove('active-question', 'active-input');
+            }
+            let targetEl = document.querySelector(`[data-q-start="${questionNumber}"]`);
+            if (targetEl) {
+                activeQuestionElement = targetEl;
+                 if (targetEl.matches('input[type="text"]') || targetEl.matches('select')) {
+                     targetEl.classList.add('active-input');
+                 } else {
+                     targetEl.classList.add('active-question');
+                 }
+                 scrollIntoViewIfNeeded(targetEl);
+            } else {
+                 const pMatch = document.querySelector(`.matching-form-row select[id="q${questionNumber}"]`);
+                 if(pMatch) {
+                    activeQuestionElement = pMatch;
+                    pMatch.classList.add('active-input');
+                    scrollIntoViewIfNeeded(pMatch);
+                 }
+            }
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            const navButtons = document.querySelectorAll('.subQuestion');
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const activeNav = Array.from(navButtons).find(btn => {
+                const hiddenSpan = btn.querySelector('[aria-hidden="true"]');
+                const qNum = parseInt(hiddenSpan ? hiddenSpan.textContent : btn.textContent.replace(/\D/g, ''), 10);
+                return qNum === currentQuestion;
+            });
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => input.classList.remove('active-input'));
+            
+            const activeInput = document.getElementById(`q${currentQuestion}`);
+            if (activeInput) {
+                activeInput.classList.add('active-input');
+                if (typeof activeInput.focus === 'function') {
+                    activeInput.focus();
+                }
+            }
+        }
+        
+        window.nextQuestion = () => currentQuestion < totalQuestions && goToQuestion(currentQuestion + 1);
+        window.previousQuestion = () => currentQuestion > 1 && goToQuestion(currentQuestion - 1);
+
+        function updateAllIndicators() {
+            partRanges.forEach(range => updateAttemptedCount(range.part, range.start, range.end));
+            updateAnsweredNav();
+        }
+        
+        function updateAnsweredNav() {
+            const navButtons = document.querySelectorAll('.subQuestion');
+            navButtons.forEach(btn => {
+                const hiddenSpan = btn.querySelector('[aria-hidden="true"]');
+                const qNum = parseInt(hiddenSpan ? hiddenSpan.textContent : btn.textContent.replace(/\D/g, ''), 10);
+                if (!isNaN(qNum) && isQuestionAnswered(qNum)) {
+                    btn.classList.add('answered');
+                } else {
+                    btn.classList.remove('answered');
+                }
+            });
+        }
+        
+        function isQuestionAnswered(qNum) {
+            const textInput = document.getElementById(`q${qNum}`);
+            if (textInput && typeof textInput.value === 'string' && textInput.value.trim() !== '') return true;
+            const radio = document.querySelector(`input[name="q${qNum}"]:checked`);
+            if (radio) return true;
+            const select = document.getElementById(`q${qNum}`);
+            if (select && select.tagName === 'SELECT' && select.value !== '') return true;
+            return false;
+        }
+
+        function scrollIntoViewIfNeeded(element) {
+            const panel = element.closest('.questions-panel, .passage-panel');
+            const panelRect = panel.getBoundingClientRect();
+            const elementRect = element.getBoundingClientRect();
+            if (elementRect.top < panelRect.top || elementRect.bottom > panelRect.bottom) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+        
+        function updateTimerDisplay() {
+            const displaySeconds = Math.max(timeInSeconds, 0);
+            if (displaySeconds > COUNTDOWN_THRESHOLD) {
+                const minutesRemaining = Math.ceil(displaySeconds / 60);
+                timerDisplay.textContent = `${minutesRemaining} minutes remaining`;
+            } else {
+                const minutes = Math.floor(displaySeconds / 60);
+                const seconds = displaySeconds % 60;
+                timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        function handleTimeExpired() {
+            timeInSeconds = 0;
+            updateTimerDisplay();
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerToggleButton.innerHTML = playIcon;
+            checkAnswers();
+        }
+
+        function startTimer() {
+            if (hasSubmitted) return;
+            if (timerInterval) clearInterval(timerInterval);
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeInSeconds = Math.max(timeInSeconds - 1, 0);
+                updateTimerDisplay();
+                if (timeInSeconds <= 0) {
+                    handleTimeExpired();
+                }
+            }, 1000);
+            timerToggleButton.innerHTML = pauseIcon;
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerToggleButton.innerHTML = playIcon;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        function resetTimer() {
+            timeInSeconds = 3600;
+            updateTimerDisplay();
+            startTimer();
+        }
+        
+        function initResize(e) {
+            e.preventDefault();
+            const startX = e.clientX;
+            const startWidth = passagePanel.offsetWidth;
+            
+            const doDrag = (e) => {
+                const newWidth = startWidth + e.clientX - startX;
+                if (newWidth > 200 && (document.body.clientWidth - newWidth - resizer.offsetWidth) > 200) {
+                    passagePanel.style.flex = `0 0 ${newWidth}px`;
+                }
+            };
+            const stopDrag = () => {
+                window.removeEventListener('mousemove', doDrag, false);
+                window.removeEventListener('mouseup', stopDrag, false);
+            };
+            
+            window.addEventListener('mousemove', doDrag, false);
+            window.addEventListener('mouseup', stopDrag, false);
+        }
+        
+        const ANNOTATION_CLASSES = {
+            highlight: 'annotation-highlight',
+            note: 'annotation-note'
+        };
+
+        function unwrapElement(element) {
+            const parent = element?.parentNode;
+            if (!parent) return;
+            while (element.firstChild) {
+                parent.insertBefore(element.firstChild, element);
+            }
+            parent.removeChild(element);
+        }
+
+        function selectionWithinPanels(selection) {
+            const anchor = selection.anchorNode;
+            const focus = selection.focusNode;
+            const inPanels = node => node && (passagePanel.contains(node) || questionsPanel.contains(node));
+            return inPanels(anchor) && inPanels(focus);
+        }
+
+        function isRangeInsidePanels(range) {
+            const root = range.commonAncestorContainer;
+            return passagePanel.contains(root) || questionsPanel.contains(root);
+        }
+
+        function getCurrentSelectionRange() {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed) return null;
+            return selection.getRangeAt(0).cloneRange();
+        }
+
+        function positionContextMenu(x, y) {
+            contextMenu.style.display = 'block';
+            const menuHeight = contextMenu.offsetHeight;
+            const menuWidth = contextMenu.offsetWidth;
+            let left = x;
+            let top = y - menuHeight - 8;
+            if (left + menuWidth > window.innerWidth) left = window.innerWidth - menuWidth - 8;
+            if (left < 8) left = 8;
+            if (top < 8) top = y + 8;
+            contextMenu.style.left = `${left}px`;
+            contextMenu.style.top = `${top}px`;
+        }
+
+        function resetSelectionState() {
+            pendingSelectionRange = null;
+            activeAnnotationTarget = null;
+        }
+
+        function showMenuForSelection(event) {
+            menuHighlightColors.style.display = 'flex';
+            menuNote.style.display = 'flex';
+            menuClear.style.display = 'none';
+            menuClearAll.style.display = 'none';
+            contextMenu.dataset.mode = 'create';
+            positionContextMenu(event.pageX, event.pageY);
+        }
+
+        function showMenuForAnnotation(event, target) {
+            activeAnnotationTarget = target;
+            pendingSelectionRange = null;
+            window.getSelection().removeAllRanges();
+            menuHighlightColors.style.display = 'none';
+            menuNote.style.display = 'none';
+            menuClear.style.display = 'flex';
+            menuClearAll.style.display = 'flex';
+            contextMenu.dataset.mode = 'manage';
+            positionContextMenu(event.pageX, event.pageY);
+        }
+
+        function closeContextMenu(resetSelection = false) {
+            contextMenu.style.display = 'none';
+            contextMenu.dataset.mode = '';
+            if (resetSelection) {
+                window.getSelection().removeAllRanges();
+            }
+            resetSelectionState();
+        }
+
+        function expandRangeToAnnotations(range, selector) {
+            const spans = Array.from(document.querySelectorAll(selector));
+            spans.forEach(span => {
+                if (!range.intersectsNode(span)) return;
+                const spanRange = document.createRange();
+                spanRange.selectNode(span);
+                if (range.compareBoundaryPoints(Range.START_TO_START, spanRange) > 0) {
+                    range.setStartBefore(span);
+                }
+                if (range.compareBoundaryPoints(Range.END_TO_END, spanRange) < 0) {
+                    range.setEndAfter(span);
+                }
+            });
+        }
+
+        function unwrapAnnotationsInRange(range, type) {
+            const selector = type === 'highlight'
+                ? `.${ANNOTATION_CLASSES.highlight}`
+                : `.${ANNOTATION_CLASSES.highlight}, .${ANNOTATION_CLASSES.note}`;
+            document.querySelectorAll(selector).forEach(span => {
+                if (range.intersectsNode(span)) {
+                    unwrapElement(span);
+                }
+            });
+        }
+
+        function getTextNodesInRange(range, type) {
+            const nodes = [];
+            const shouldInclude = (node) => {
+                if (!node || !node.nodeValue || !node.nodeValue.trim()) return false;
+                if (!range.intersectsNode(node)) return false;
+                if (type === 'highlight' && node.parentElement?.closest(`.${ANNOTATION_CLASSES.note}`)) {
+                    return false;
+                }
+                return true;
+            };
+
+            if (range.commonAncestorContainer.nodeType === Node.TEXT_NODE) {
+                if (shouldInclude(range.commonAncestorContainer)) {
+                    nodes.push(range.commonAncestorContainer);
+                }
+                return nodes;
+            }
+
+            const walker = document.createTreeWalker(
+                range.commonAncestorContainer,
+                NodeFilter.SHOW_TEXT,
+                {
+                    acceptNode: (node) => shouldInclude(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+                }
+            );
+
+            while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+            }
+            return nodes;
+        }
+
+        function wrapTextPortion(node, range, type, noteText = '', highlightColor = 'yellow') {
+            let startOffset = 0;
+            let endOffset = node.nodeValue.length;
+
+            if (node === range.startContainer && range.startOffset > startOffset) {
+                startOffset = range.startOffset;
+            }
+            if (node === range.endContainer && range.endOffset < endOffset) {
+                endOffset = range.endOffset;
+            }
+
+            if (startOffset >= endOffset) return;
+
+            const selectedText = node.splitText(startOffset);
+            selectedText.splitText(endOffset - startOffset);
+
+            const span = document.createElement('span');
+            span.classList.add('annotation', type === 'highlight' ? ANNOTATION_CLASSES.highlight : ANNOTATION_CLASSES.note);
+            span.dataset.type = type;
+            if (type === 'highlight') {
+                const allowedColors = ['yellow', 'green', 'pink'];
+                const safeColor = allowedColors.includes(highlightColor) ? highlightColor : 'yellow';
+                span.dataset.color = safeColor;
+                span.classList.add(`highlight-${safeColor}`);
+            }
+            if (type === 'note') {
+                const content = noteText || '';
+                span.dataset.note = content;
+                if (content) {
+                    span.setAttribute('data-note', content);
+                    span.title = content;
+                } else {
+                    span.removeAttribute('data-note');
+                    span.title = 'Note';
+                }
+            }
+            selectedText.parentNode.insertBefore(span, selectedText);
+            span.appendChild(selectedText);
+        }
+
+        function mergeAdjacentAnnotations() {
+            const annotations = document.querySelectorAll(`.${ANNOTATION_CLASSES.highlight}, .${ANNOTATION_CLASSES.note}`);
+            annotations.forEach(span => {
+                if (!span.parentNode) return;
+                let cursor = span.nextSibling;
+                while (true) {
+                    const whitespaceBetween = [];
+                    while (cursor && cursor.nodeType === Node.TEXT_NODE && !cursor.textContent.trim()) {
+                        whitespaceBetween.push(cursor);
+                        cursor = cursor.nextSibling;
+                    }
+                    if (
+                        cursor &&
+                        cursor.nodeType === Node.ELEMENT_NODE &&
+                        cursor.classList.contains('annotation') &&
+                        cursor.dataset.type === span.dataset.type &&
+                        (span.dataset.type !== 'note' || (span.dataset.note || '') === (cursor.dataset.note || ''))
+                    ) {
+                        whitespaceBetween.forEach(node => span.appendChild(node));
+                        while (cursor.firstChild) {
+                            span.appendChild(cursor.firstChild);
+                        }
+                        const after = cursor.nextSibling;
+                        cursor.remove();
+                        cursor = after;
+                    } else {
+                        break;
+                    }
+                }
+                if (!span.textContent.trim()) {
+                    unwrapElement(span);
+                }
+            });
+        }
+
+        function handleTextSelection(event) {
+            const selection = window.getSelection();
+            if (!selection || selection.rangeCount === 0 || selection.isCollapsed || !selection.toString().trim()) {
+                return;
+            }
+            if (!selectionWithinPanels(selection)) {
+                return;
+            }
+            const range = selection.getRangeAt(0).cloneRange();
+            pendingSelectionRange = range;
+            activeAnnotationTarget = null;
+            showMenuForSelection(event);
+        }
+
+        function initializeContextMenu() {
+            const panels = [passagePanel, questionsPanel];
+            panels.forEach(panel => {
+                panel.addEventListener('mouseup', (e) => {
+                    setTimeout(() => handleTextSelection(e), 0);
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (contextMenu.contains(e.target)) return;
+                const annotation = e.target.closest(`.${ANNOTATION_CLASSES.highlight}, .${ANNOTATION_CLASSES.note}`);
+                if (annotation) {
+                    showMenuForAnnotation(e, annotation);
+                    return;
+                }
+                closeContextMenu();
+            });
+        }
+
+        function applyAnnotation(type, noteText = '', highlightColor = 'yellow') {
+            const baseRange = pendingSelectionRange ? pendingSelectionRange.cloneRange() : getCurrentSelectionRange();
+            if (!baseRange || baseRange.collapsed || !isRangeInsidePanels(baseRange)) {
+                closeContextMenu(true);
+                return;
+            }
+
+            if (type === 'highlight') {
+                expandRangeToAnnotations(baseRange, `.${ANNOTATION_CLASSES.highlight}`);
+            } else {
+                expandRangeToAnnotations(baseRange, `.${ANNOTATION_CLASSES.note}`);
+            }
+
+            unwrapAnnotationsInRange(baseRange, type);
+            const targets = getTextNodesInRange(baseRange, type);
+            targets.forEach(node => wrapTextPortion(node, baseRange, type, noteText, highlightColor));
+            mergeAdjacentAnnotations();
+            closeContextMenu(true);
+        }
+
+        function highlightText(color = 'yellow') {
+            applyAnnotation('highlight', '', color);
+        }
+
+        function addNote() {
+            const note = prompt('Nhập nội dung ghi chú (Take note):');
+            if (note === null) {
+                closeContextMenu();
+                return;
+            }
+            applyAnnotation('note', note.trim());
+        }
+
+        function clearHighlight() {
+            if (activeAnnotationTarget) {
+                unwrapElement(activeAnnotationTarget);
+                mergeAdjacentAnnotations();
+            }
+            closeContextMenu(true);
+        }
+        
+        function clearAllHighlights() {
+            document.querySelectorAll(`.${ANNOTATION_CLASSES.highlight}, .${ANNOTATION_CLASSES.note}`)
+                .forEach(unwrapElement);
+            mergeAdjacentAnnotations();
+            closeContextMenu(true);
+        }
+
+        function findQuestionAnchor(qNum) {
+            const mcqNumber = document.querySelector(`.mcq-question-number[data-q-number="${qNum}"]`);
+            if (mcqNumber) return mcqNumber;
+            const tfNumber = Array.from(document.querySelectorAll('.tf-question-number')).find(el => parseInt(el.textContent, 10) === qNum);
+            if (tfNumber) return tfNumber;
+            const strongLabel = Array.from(document.querySelectorAll(`label[for="q${qNum}"] strong`)).find(el => /^\d+$/.test(el.textContent.trim()));
+            if (strongLabel) return strongLabel;
+            const genericLabel = document.querySelector(`label[for="q${qNum}"]`);
+            if (genericLabel) return genericLabel;
+            const textInput = document.getElementById(`q${qNum}`);
+            if (textInput) return textInput;
+            return null;
+        }
+
+        function createMarkerButton(anchor, qNum) {
+            if (!anchor || anchor.closest('.question-number-with-mark') || anchor.closest('.markable-blank-wrapper')) return null;
+            const isInput = anchor.tagName === 'INPUT' || anchor.tagName === 'SELECT';
+            const isInlineBlank = isInput;
+
+            const wrapper = document.createElement('span');
+            wrapper.dataset.questionNumber = qNum;
+            const parent = anchor.parentNode;
+            if (!parent) return null;
+
+            if (isInlineBlank) {
+                wrapper.className = 'markable-blank-wrapper';
+                parent.insertBefore(wrapper, anchor);
+                wrapper.appendChild(anchor);
+            } else {
+                wrapper.className = 'question-number-with-mark';
+                const displayMode = window.getComputedStyle(anchor).display;
+                if (displayMode === 'block' || displayMode === 'flex') {
+                    wrapper.style.display = 'flex';
+                    wrapper.style.alignItems = 'center';
+                }
+                parent.insertBefore(wrapper, anchor);
+                wrapper.appendChild(anchor);
+            }
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = isInlineBlank ? 'mark-toggle-btn inside-blank' : 'mark-toggle-btn';
+            button.dataset.questionNumber = qNum;
+            button.setAttribute('aria-label', `Đánh dấu câu ${qNum}`);
+            button.innerHTML = bookmarkIcon;
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMark(qNum);
+            });
+            wrapper.appendChild(button);
+
+            const markHost = wrapper.closest('.tf-question, .matching-form-row, .matching-question-item, .question, .drag-drop-question, .summary-question, .paragraph-matching-question') || wrapper;
+            if(markHost) markHost.classList.add('markable-question');
+
+            markButtons.set(qNum, button);
+            return button;
+        }
+
+        function initializeQuestionMarkers() {
+            for (let i = 1; i <= totalQuestions; i++) {
+                const anchor = findQuestionAnchor(i);
+                createMarkerButton(anchor, i);
+            }
+        }
+
+        function toggleMark(qNum) {
+            const isMarked = markedQuestions.has(qNum);
+            if (isMarked) {
+                markedQuestions.delete(qNum);
+            } else {
+                markedQuestions.add(qNum);
+            }
+            updateMarkState(qNum, !isMarked);
+        }
+
+        function updateMarkState(qNum, marked) {
+            const btn = markButtons.get(qNum);
+            if (btn) {
+                btn.classList.toggle('marked', marked);
+                btn.setAttribute('aria-pressed', marked ? 'true' : 'false');
+            }
+            const navButton = Array.from(document.querySelectorAll('.subQuestion')).find(b => {
+                const hiddenSpan = b.querySelector('[aria-hidden="true"]');
+                const num = parseInt(hiddenSpan ? hiddenSpan.textContent : b.textContent.replace(/\D/g, ''), 10);
+                return num === qNum;
+            });
+            if (navButton) {
+                navButton.classList.toggle('marked', marked);
+            }
+        }
+
+        function updateAttemptedCount(part, startQ, endQ) {
+            let answeredCount = 0;
+            for (let i = startQ; i <= endQ; i++) {
+                if (isQuestionAnswered(i)) {
+                    answeredCount++;
+                }
+            }
+            const partHeader = document.querySelector(`.footer__questionNo___3WNct[onclick="switchToPart(${part})"]`);
+            if (partHeader) {
+                const countSpan = partHeader.querySelector('.attemptedCount');
+                if (countSpan) {
+                     countSpan.textContent = `${answeredCount} of ${endQ - startQ + 1}`;
+                }
+            }
+        }
+
+        window.nextQuestion = nextQuestion;
+        window.previousQuestion = previousQuestion;
+        window.goToQuestion = goToQuestion;
+        window.switchToPart = switchToPart;
+        window.closeResultsModal = closeResultsModal;
+        window.highlightText = highlightText;
+        window.addNote = addNote;
+        window.clearHighlight = clearHighlight;
+        window.clearAllHighlights = clearAllHighlights;
+    });
+    </script>
+</div>
+</body>
+</html>
